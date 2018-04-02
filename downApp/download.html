@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<title>下载App</title>
+		<!-- <script src="./js/lib-flexible.js"></script> -->
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body>
+		<!-- <div id="downloadApp">
+			<button class="button btn-download">下载App</button>
+		</div> -->
+	</body>
+	<script type="text/javascript">
+		window.onload = function(){
+			 function Method(){};
+			Method.prototype.is_weixin = function(){
+	            var ua = navigator.userAgent.toLowerCase();
+	            if(ua.match(/MicroMessenger/i)=="micromessenger") {
+	                return true;
+	            } else {
+	                return false;
+	            }				
+			}
+			Method.prototype.is_iphone =  function(){
+	            var browser = {
+	                versions: function () {
+	                    var u = navigator.userAgent;
+	                    return {
+	                        //移动终端浏览器版本信息
+	                        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+	                        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端
+	                        iPhone: u.indexOf('iPhone') > -1, //是否为iPhone
+	                        iPad: u.indexOf('iPad') > -1 //是否iPad
+	                    };
+	                }()
+	            };
+	            if(browser.versions.ios || browser.versions.iphone || browser.versions.ipad) {
+	                return 1;
+	            }else{
+	                return 0;
+	            }				
+			}
+			Method.prototype.jumpHandle = function(){				
+	            if(this.is_iphone()){  //IOS
+	               window.location.href="https://itunes.apple.com/cn/app/k%E7%94%9F%E6%B4%BB/id1320852183?mt=8";
+	            }else{  //android
+	               window.location.href ="http://app.mi.com/details?id=com.estate.housekeeper&ref=search";
+	            }
+			}
+			var Instance = new Method();
+			//自动跳转
+			//setTimeout(function(){
+				Instance.jumpHandle();			
+			//},3000)
+			// document.getElementById("downloadApp").addEventListener("click",function(){
+			// 	Instance.jumpHandle();					
+			// })
+		}
+	</script>
+</html>

@@ -1,0 +1,29 @@
+$base : 37.5px;
+
+@function pxtorem($pxsize){
+    @return $pxsize/$base * 1rem;
+}
+
+@mixin font-dpr($font-size){
+    font-size: $font-size;
+
+    [data-dpr="2"] & {
+        font-size: $font-size * 2;
+    }
+
+    [data-dpr="3"] & {
+        font-size: $font-size * 3;
+    }
+}
+
+@mixin line-height-dpr($line-height){
+    line-height: $line-height;
+
+    [data-dpr="2"] & {
+        line-height: $line-height * 2;
+    }
+
+    [data-dpr="3"] & {
+       line-height: $line-height * 3;
+    }
+}
